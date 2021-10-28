@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    /* 基本选项 */
+    "target": "es2019", // 指定ECMAScript目标版本, 包含的库声明
+    "module": "es6", // 指定生成的模块代码类型
+    "lib": ["es6", "es2020", "esnext", "dom"], // 指定要包含在编译中的库文件
+    "jsx": "react", // 指定生成什么 jsx 代码
+    "removeComments": true, // 删除编译后的所有的注释
+    "importHelpers": true, // 从 tslib 导入辅助工具函数
+    "esModuleInterop": true, // 允许export=导出，由import from 导入
+    /* 严格的类型检查选项 */
+    "noImplicitAny": true, // 在表达式和声明上有隐含的 any类型时报错
+    "noImplicitThis": true, // 当 this 表达式值为 any 类型的时候，生成一个错误
+
+    /* 额外的检查 */
+    "noUnusedLocals": true, // 有未使用的变量时，抛出错误
+    "noUnusedParameters": true, // 有未使用的参数时，抛出错误
+    "noImplicitReturns": true, // 并不是所有函数里的代码都有返回值时，抛出错误
+    "noFallthroughCasesInSwitch": false, // 允许 switch 的 case 语句贯穿
+
+
+  }
+}
