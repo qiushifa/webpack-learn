@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.app {
+  background-color: blue;
+  height: 800px;
+}
+.test {
+  color: red;
+  font-size: large;
+}

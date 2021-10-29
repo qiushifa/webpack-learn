@@ -1,11 +1,10 @@
 import React from "react";
+import "./App.css";
 
 const App: React.FC<{}> = () => (
-  <div>
+  <div className="app">
     <header>
-      <p>
-        dfsddfa
-      </p>
+      <p className="test">dfsddfa</p>
     </header>
   </div>
 );
