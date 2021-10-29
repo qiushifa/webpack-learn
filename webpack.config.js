@@ -1,45 +1,48 @@
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin"); // 通过 npm 安装
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin'); // 通过 npm 安装
 
-module.exports = (env) => {
+module.exports = env => {
   const localFlag = env.NODE_ENV === 'local';
   // 默认配置
   const defaultConf = {
-    entry: "./src/index.tsx",
+    entry: './src/index.tsx', // 入口
+    // 出口
     output: {
-      path: path.resolve(__dirname, "dist"),
-      filename: "bundle.js",
+      path: path.resolve(__dirname, 'dist'),
+      filename: 'bundle.js',
     },
+    // ？？
     resolve: {
       // Add ".ts" and ".tsx" as resolvable extensions.
-      extensions: [".ts", ".tsx", ".js"],
+      // extensions作用：在导入语句没带文件后缀时，Webpack 会自动带上后缀后去尝试访问文件是否存在。
+      extensions: ['.ts', '.tsx', '.js'],
     },
+    // 模块，处理webpack处理不了的东西
     module: {
       rules: [
         {
           test: /\.tsx?$/,
-          use: "ts-loader",
+          use: [{ loader: 'ts-loader' }],
           exclude: /node_modules/,
         },
         {
-          test: /\.css$/i,
-          use: ["style-loader", "css-loader"],
+          test: /\.scss$/,
+          use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'],
         },
       ],
     },
-    plugins: [new HtmlWebpackPlugin({ template: "./src/index.html" })],
+    // 插件，处理module处理不了的东西
+    plugins: [new HtmlWebpackPlugin({ template: './src/index.html' })],
   };
 
-  if(localFlag){
-    return{
+  if (localFlag) {
+    return {
       ...defaultConf,
       devtool: 'inline-source-map',
-      cache:{
-        name: 'learn-demo-cache', // 缓存名称
-        type: 'filesystem', // 通过文件系统来缓存，默认有效期1个月，缓存目录默认为 node_modules/.cache/webpack
-        store: 'pack', // 当编译器闲置时候，将缓存数据都存放在一个文件中
-        maxMemoryGenerations: 1, // 将最大限度地减少内存使用，同时仍将活动项目保留在内存缓存中
-      }
-    }
+      devServer: {
+        host: '0.0.0.0',
+        port: 8999,
+      },
+    };
   }
 };
