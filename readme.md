@@ -21,3 +21,7 @@ postcss, postcss-import,postcss-url,autoprefixer, posts-preset-env(未来css支�
 ### tailwind的配置
 
 tailwindcss，autoprefixer
+
+### babel
+
+@babel/core, @babel/cli, @babel/preset-env babel-loader(webpack)

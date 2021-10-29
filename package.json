@@ -11,11 +11,15 @@
     "clean-start": "yarn clean && yarn start"
   },
   "devDependencies": {
+    "@babel/cli": "^7.15.7",
+    "@babel/core": "^7.15.8",
+    "@babel/preset-env": "^7.15.8",
     "@types/react": "^17.0.33",
     "@types/react-dom": "^17.0.10",
     "@typescript-eslint/eslint-plugin": "^5.2.0",
     "@typescript-eslint/parser": "^5.2.0",
     "autoprefixer": "^10.4.0",
+    "babel-loader": "^8.2.3",
     "css-loader": "^6.5.0",
     "eslint": "^7.32.0",
     "eslint-config-airbnb": "^18.2.1",
