@@ -20,7 +20,7 @@ module.exports = env => {
     // 模块，处理webpack处理不了的东西
     module: {
       rules: [
-        { loader: 'babel-loader' },
+        { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' },
         {
           test: /\.tsx?$/,
           use: [{ loader: 'ts-loader' }],
